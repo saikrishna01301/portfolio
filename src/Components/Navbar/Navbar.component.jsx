@@ -15,9 +15,11 @@ const Navbar = () => {
     <>
       <div className="navbar__container">
         <div className="navbar__logo">
-          <h2 className="logo">
-            Sai <span className="logo--span">Krishna</span>
-          </h2>
+          <Link to="/">
+            <h2 className="logo">
+              Sai <span className="logo--span">Krishna</span>
+            </h2>
+          </Link>
         </div>
         <div className="navbar__links">
           <Link to="/">Portfolio</Link>

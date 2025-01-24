@@ -4,9 +4,14 @@
   align-items: center;
   margin-top: 45px;
 }
+.navbar__logo a {
+  text-decoration: none;
+}
 .logo--span,
 .logo {
   text-transform: uppercase;
+  color: #fff;
+  transition: color 0.3s ease;
 }
 .logo--span {
   background-image: linear-gradient(to right bottom, #7ed56f, #25b485);
