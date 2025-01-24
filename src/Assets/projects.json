@@ -1,0 +1,16 @@
+[
+  {
+    "heading": "Cropgenius",
+    "image": "Crop",
+    "info": "SmartCrop is a web application designed to help farmers optimize their farming practices by providing crop recommendations based on essential parameters like soil nutrients, weather conditions, and pH levels. The app also features an integrated shop where farmers can easily purchase fertilizers, streamlining their workflow.",
+    "technologies": "React.js, React Router, Firebase, Stripe, SASS, and Machine Learning.",
+    "link": "https://cropgenius.netlify.app/"
+  },
+  {
+    "heading": "Madclothing",
+    "image": "Madclothing",
+    "info": "MadClothing is a single-page e-commerce application for shopping clothes, offering a responsive and intuitive user interface. The application provides a seamless shopping experience with secure user authentication, efficient state management, and smooth navigation.",
+    "technologies": "React, Redux, Firebase, React Router, React Hooks.",
+    "link": "https://mad-clothings.netlify.app/"
+  }
+]

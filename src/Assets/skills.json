@@ -1,0 +1,30 @@
+[
+  {
+    "skill": "Html",
+    "percentage": "90%"
+  },
+  {
+    "skill": "CSS",
+    "percentage": "90%"
+  },
+  {
+    "skill": "JavaScript",
+    "percentage": "80%"
+  },
+  {
+    "skill": "React.js",
+    "percentage": "75%"
+  },
+  {
+    "skill": "Node.js",
+    "percentage": "30%"
+  },
+  {
+    "skill": "Mui",
+    "percentage": "65%"
+  },
+  {
+    "skill": "Sass",
+    "percentage": "85%"
+  }
+]
