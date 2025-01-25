@@ -7,9 +7,44 @@ import {
   InputLabel,
   TextField,
 } from "@mui/material";
-import { useContext, useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
+const public_key = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+const service_id = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+const template_id = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 
 const ContactDialog = ({ open, handleClose }) => {
+  const [formdata, setFormdata] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const onChangeHandler = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFormdata({ ...formdata, [name]: value });
+  };
+
+  const templateParams = formdata;
+
+  const onSendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.send(service_id, template_id, templateParams, public_key).then(
+      () => {
+        alert("mail sent successfully");
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    setFormdata({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
   return (
     <Dialog
       open={open}
@@ -37,6 +72,7 @@ const ContactDialog = ({ open, handleClose }) => {
       <DialogTitle sx={{ marginTop: "10px" }}>Contact me</DialogTitle>
       <DialogContent sx={{ width: "100%" }}>
         <form
+          onSubmit={onSendEmail}
           style={{
             width: "100%",
             display: "flex",
@@ -51,6 +87,8 @@ const ContactDialog = ({ open, handleClose }) => {
             id="name"
             name="name"
             type="text"
+            value={formdata.name}
+            onChange={onChangeHandler}
             required
             sx={{
               "& .MuiOutlinedInput-root": {
@@ -77,7 +115,9 @@ const ContactDialog = ({ open, handleClose }) => {
             id="email"
             name="email"
             type="email"
+            value={formdata.email}
             required
+            onChange={onChangeHandler}
             sx={{
               "& .MuiOutlinedInput-root": {
                 fontSize: "16px", // Changes the input text font size
@@ -102,6 +142,8 @@ const ContactDialog = ({ open, handleClose }) => {
             id="message"
             name="message"
             type="text"
+            value={formdata.message}
+            onChange={onChangeHandler}
             multiline
             rows={6}
             required
@@ -123,6 +165,8 @@ const ContactDialog = ({ open, handleClose }) => {
           ></TextField>
           <Button
             variant="contained"
+            type="submit"
+            value="Send"
             sx={{
               backgroundImage:
                 "linear-gradient(to right bottom, #7ed56f, #25b485)",
